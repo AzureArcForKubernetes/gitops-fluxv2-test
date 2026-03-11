@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: podinfo
+  namespace: helmrepo
+spec:
+  interval: 2h
+  provider: generic
+  type: oci
+  url: oci://ghcr.io/stefanprodan/manifests/podinfo:latest
