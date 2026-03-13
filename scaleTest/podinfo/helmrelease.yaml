@@ -743,7 +743,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: podinfo-repo
-        namespace: flux-system
+        namespace: ${NAMESPACE}
   values:
     replicaCount: 1
     dashboards:
