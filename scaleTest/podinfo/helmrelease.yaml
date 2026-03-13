@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: podinfo
-  namespace: $(NAMESPACE)
+  namespace: ${NAMESPACE}
   annotations:
     corp.example.com/compliance-blob: |-
       hr-01-anno:C7B0DPeejunk1nGjuU5wYyUBhXm9XwleAqy6BuHQQ3aFdx9FcPJDjMse92D5UjMhRVM3QRsyWagUOP

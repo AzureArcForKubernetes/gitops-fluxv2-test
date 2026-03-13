@@ -13,19 +13,19 @@ This folder contains a **tenant-agnostic** Flux GitOps template designed for mul
       NAMESPACE: tenant-42
   ```
 
-- The `$(NAMESPACE)` placeholder in the manifests is replaced by Flux before the resources are applied to the cluster.
+- The `${NAMESPACE}` placeholder in the manifests is replaced by Flux before the resources are applied to the cluster.
 
 ## What's included
 
 | File                  | Description                                      |
 |-----------------------|--------------------------------------------------|
-| `namespace.yaml`      | Namespace resource using `$(NAMESPACE)`           |
+| `namespace.yaml`      | Namespace resource using `${NAMESPACE}`           |
 | `helmrepository.yaml` | HelmRepository pointing to the podinfo Helm repo |
 | `helmrelease.yaml`    | HelmRelease deploying the podinfo chart           |
 | `kustomization.yaml`  | Kustomize manifest listing all resources          |
 
 ## Key design decisions
 
-- **No tenant-specific folders or hardcoded names** – everything is parameterized via `$(NAMESPACE)`.
+- **No tenant-specific folders or hardcoded names** – everything is parameterized via `${NAMESPACE}`.
 - **Plain Kustomize** – no Helm templating inside the repo; Flux handles variable substitution.
 - **Single source of truth** – one set of manifests serves all tenants.
