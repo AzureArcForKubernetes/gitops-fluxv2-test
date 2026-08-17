@@ -470,7 +470,6 @@ spec:
     replicaCount: 1
     image:
       repository: ghcr.io/stefanprodan/podinfo
-      tag: "6.5.4"
       pullPolicy: IfNotPresent
     resources:
       requests:
