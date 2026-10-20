@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: preview-substitution
+data:
+  color: ${PREVIEW_COLOR}
+  required: ${PREVIEW_REQUIRED}

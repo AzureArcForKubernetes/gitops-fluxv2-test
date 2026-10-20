@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: preview-settings
+  labels:
+    app: preview-app
+data:
+  revision: v1
+  keep: original
+  remove: original
