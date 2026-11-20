@@ -26,5 +26,33 @@ spec:
   values:
     replicaCount: 1
     image:
-      repository: nginx
-      tag: latest
+      repository: mcr.microsoft.com/azurelinux/base/nginx
+      tag: 1.30.6-2-azl3.0.20261120@sha256:fa5263ab1df7457b18332c5b334395d5f06b73de939549a9db8a335e32b03f74
+  # The MCR image installs its default page under /etc/nginx/html.
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              group: apps
+              version: v1
+              kind: Deployment
+              name: my-chart
+            patch: |
+              apiVersion: apps/v1
+              kind: Deployment
+              metadata:
+                name: my-chart
+              spec:
+                template:
+                  spec:
+                    containers:
+                      - name: my-chart
+                        volumeMounts:
+                          - name: nginx-server-config
+                            mountPath: /etc/nginx/nginx.conf.default
+                            subPath: default.conf
+                            readOnly: true
+                    volumes:
+                      - name: nginx-server-config
+                        configMap:
+                          name: nginx-server-config

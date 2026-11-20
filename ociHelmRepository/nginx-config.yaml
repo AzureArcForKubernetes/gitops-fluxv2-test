@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-server-config
+  namespace: ocihelm
+data:
+  default.conf: |-
+    server {
+      listen 80;
+      server_name localhost;
+      location / {
+        root /etc/nginx/html;
+        index index.html;
+      }
+    }
