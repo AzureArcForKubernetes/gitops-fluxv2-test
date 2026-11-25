@@ -5,4 +5,5 @@ metadata:
   namespace: ${NAMESPACE}
 spec:
   interval: 10m
-  url: https://stefanprodan.github.io/podinfo
+  type: oci
+  url: oci://azurearcfork8sdev.azurecr.io/flux-test-dependencies/helm
