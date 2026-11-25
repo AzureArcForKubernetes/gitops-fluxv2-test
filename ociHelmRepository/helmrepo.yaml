@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 1m0s
   type: oci
-  url: oci://azurearcfork8sdev.azurecr.io/test-dependencies/helm
+  url: oci://azurearcfork8sdev.azurecr.io/flux-test-dependencies/helm
   provider: generic
