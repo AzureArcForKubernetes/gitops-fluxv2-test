@@ -8,8 +8,8 @@ spec:
   timeout: 5m
   chart:
     spec:
-      chart: my-chart
-      version: '0.1.0'
+      chart: podinfo
+      version: '6.17.0-acr.1'
       sourceRef:
         kind: HelmRepository
         name: acrrepo
@@ -26,5 +26,10 @@ spec:
   values:
     replicaCount: 1
     image:
-      repository: nginx
-      tag: latest
+      repository: azurearcfork8sdev.azurecr.io/test-dependencies/stefanprodan/podinfo
+      tag: "6.17.0"
+      pullPolicy: IfNotPresent
+    testImages:
+      grpc: azurearcfork8sdev.azurecr.io/test-dependencies/grpc-ecosystem/grpc-health-probe:v0.4.56
+      tools: azurearcfork8sdev.azurecr.io/test-dependencies/giantswarm/tiny-tools:8ccea5962d6e
+      curl: azurearcfork8sdev.azurecr.io/test-dependencies/curlimages/curl:7.69.0
